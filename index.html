@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吴景宇 · 2026年高考志愿填报方案</title>
+<style>
+  @page {
+    size: A4 landscape;
+    margin: 10mm 8mm;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "STHeiti", sans-serif;
+    font-size: 9px;
+    color: #1a1a1a;
+    background: #fff;
+    padding: 6mm;
+  }
+
+  /* ─── 封面区 ─── */
+  .cover {
+    text-align: center;
+    padding: 6mm 0 4mm;
+    border-bottom: 2px solid #1a5276;
+    margin-bottom: 5mm;
+  }
+  .cover h1 { font-size: 18px; color: #1a5276; letter-spacing: 2px; margin-bottom: 3px; }
+  .cover h2 { font-size: 12px; color: #555; font-weight: normal; margin-bottom: 6px; }
+  .cover .meta { font-size: 9px; color: #777; }
+  .cover .meta span { margin: 0 8px; }
+
+  /* ─── 前置说明 ─── */
+  .info-box {
+    background: #eaf4fb;
+    border-left: 4px solid #1a5276;
+    padding: 5px 8px;
+    margin-bottom: 5mm;
+    border-radius: 0 4px 4px 0;
+  }
+  .info-box h3 { font-size: 10px; color: #1a5276; margin-bottom: 4px; }
+  .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px 12px; }
+  .info-item { font-size: 8.5px; }
+  .info-item strong { color: #c0392b; }
+
+  /* ─── 段落标题 ─── */
+  .section-title {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    margin: 4mm 0 2mm;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .chong { background: #fdebd0; color: #943126; border-left: 4px solid #e74c3c; }
+  .wen   { background: #eafaf1; color: #1e8449; border-left: 4px solid #27ae60; }
+  .bao   { background: #eaf2ff; color: #1a5276; border-left: 4px solid #2980b9; }
+  .badge {
+    display: inline-block;
+    font-size: 8px;
+    padding: 1px 5px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.1);
+  }
+
+  /* ─── 主表格 ─── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3mm;
+    page-break-inside: avoid;
+  }
+  th {
+    background: #1a5276;
+    color: #fff;
+    font-size: 7.5px;
+    padding: 3px 4px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  td {
+    font-size: 7.5px;
+    padding: 2.5px 4px;
+    border: 1px solid #d5d8dc;
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  tr:nth-child(even) td { background: #f8f9fa; }
+
+  /* 列宽控制 */
+  .col-seq   { width: 3%; text-align: center; font-weight: bold; }
+  .col-school{ width: 15%; }
+  .col-group { width: 5%; text-align: center; }
+  .col-major { width: 14%; }
+  .col-score { width: 10%; text-align: center; }
+  .col-rank  { width: 10%; text-align: center; }
+  .col-job   { width: 16%; }
+  .col-soe   { width: 6%; text-align: center; }
+  .col-civil { width: 6%; text-align: center; }
+  .col-note  { width: 15%; }
+
+  /* 梯度标记 */
+  .tag-chong { background: #f1948a; color: #fff; border-radius: 3px; padding: 0 3px; font-size: 7px; }
+  .tag-wen   { background: #82e0aa; color: #1e8449; border-radius: 3px; padding: 0 3px; font-size: 7px; }
+  .tag-bao   { background: #85c1e9; color: #1a5276; border-radius: 3px; padding: 0 3px; font-size: 7px; }
+
+  /* 确认数据强调 */
+  .confirmed { color: #c0392b; font-weight: bold; }
+  .warn      { color: #e67e22; font-weight: bold; }
+
+  /* ─── 说明区 ─── */
+  .notes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-top: 4mm;
+    page-break-before: always;
+  }
+  .note-card {
+    border: 1px solid #d5d8dc;
+    border-radius: 4px;
+    padding: 5px 7px;
+  }
+  .note-card h4 { font-size: 9px; color: #1a5276; margin-bottom: 4px; border-bottom: 1px solid #d5d8dc; padding-bottom: 2px; }
+  .note-card table { margin-bottom: 0; }
+  .note-card th { font-size: 7px; }
+  .note-card td { font-size: 7px; }
+
+  /* 打印提示隐藏 */
+  .print-hint { font-size: 8.5px; color: #888; text-align: center; margin: 5px 0; }
+  @media print { .print-hint { display: none; } }
+
+  /* 页码 */
+  .footer {
+    text-align: center;
+    font-size: 7px;
+    color: #aaa;
+    margin-top: 3mm;
+    border-top: 1px solid #eee;
+    padding-top: 2mm;
+  }
+
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<p class="print-hint">▶ 打印为PDF：浏览器菜单 → 打印 → 目标打印机选「另存为PDF」→ 纸张选「A4横向」</p>
+
+<!-- ═══ 封面 ═══ -->
+<div class="cover">
+  <h1>2026年高考志愿填报方案</h1>
+  <h2>考生：吴景宇 &emsp;|&emsp; 省份：吉林省 &emsp;|&emsp; 科类：物理类（理科）</h2>
+  <div class="meta">
+    <span>全省位次：<strong>47,000</strong></span>
+    <span>估算分数：<strong>443~448分</strong></span>
+    <span>2025年本科批最低控制线：<strong>340分（物理类）</strong></span>
+    <span>志愿格局：冲10 + 稳30 + 保10</span>
+  </div>
+</div>
+
+<!-- ═══ 前置说明 ═══ -->
+<div class="info-box">
+  <h3>填报说明 &amp; 数据说明</h3>
+  <div class="info-grid">
+    <div class="info-item">🔴 <strong>位次43-448分依据</strong>：2025年一分一段，位次40,000~41,000对应449~451分★</div>
+    <div class="info-item">🔴 <strong>志愿上限</strong>：吉林省本科批平行志愿上限为<strong>40个</strong>，本表50条为遴选池</div>
+    <div class="info-item">🔴 <strong>专业组代码</strong>：须查2025年吉林省普通高校招生计划（格式：4位院校号+3位专业组号）</div>
+    <div class="info-item">⭕ 标★为已确认数据；标<strong>（估）</strong>为参考估算，以各校2025年吉林录取结果为准</div>
+    <div class="info-item">⭕ 院校代码标（估）者需在教育部阳光高考平台核实</div>
+    <div class="info-item">⭕ <strong>英语薄弱</strong>：回避纯英文授课中外合作项目；慎选通信工程（部分有英语≥90单科要求）</div>
+  </div>
+</div>
+
+<!-- ═══ 冲志愿 ═══ -->
+<div class="section-title chong">
+  🚀 冲志愿（10个）<span class="badge">参考目标位次 36,000~46,000</span>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="col-seq">序号</th>
+      <th class="col-school">院校名称（院校代码）</th>
+      <th class="col-group">专业组代码</th>
+      <th class="col-major">推荐专业（专业代码）</th>
+      <th class="col-score">2025参考<br>最低分/最高分</th>
+      <th class="col-rank">参考位次（估）</th>
+      <th class="col-job">就业方向</th>
+      <th class="col-soe">央/国企机会</th>
+      <th class="col-civil">考公考编</th>
+      <th class="col-note">备注（单科/招生人数/色觉）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>01</td>
+      <td class="col-school">延边大学·<strong>211</strong><br>（10184）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">468 / 502（估）</td>
+      <td class="col-rank">33,000~38,000</td>
+      <td class="col-job">国家电网/延边本地电力国企/吉林省能源企业</td>
+      <td class="col-soe">55~65%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；无单科硬要求；招生人数需查；吉林本省211，本地竞争较激烈</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>02</td>
+      <td class="col-school">石河子大学·<strong>211</strong><br>（10759）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">462 / 492（估）</td>
+      <td class="col-rank">36,000~40,000</td>
+      <td class="col-job">新疆建设兵团/中化集团/中国石化央企</td>
+      <td class="col-soe">40~50%</td>
+      <td class="col-civil">10%</td>
+      <td class="col-note">不色盲；无单科硬要求；招生人数需查；新疆补贴政策好，央企资源丰富</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>03</td>
+      <td class="col-school">东北电力大学<br>（10188）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score"><span class="confirmed">462★ / 490（估）</span></td>
+      <td class="col-rank"><span class="confirmed">37,000~40,000★</span></td>
+      <td class="col-job">国家电网/华能/大唐/国电投/南方电网</td>
+      <td class="col-soe"><strong>60~70%</strong></td>
+      <td class="col-civil">5~10%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>（电力安全强制要求）；无单科硬要求；招生人数需查；电气为该校王牌专业</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>04</td>
+      <td class="col-school">东北电力大学<br>（10188）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">自动化<br>（080801）</td>
+      <td class="col-score">458 / 486（估）</td>
+      <td class="col-rank">38,000~42,000</td>
+      <td class="col-job">电力自动化/工控系统/能源央企</td>
+      <td class="col-soe">55~65%</td>
+      <td class="col-civil">5~10%</td>
+      <td class="col-note">不色盲；需核查是否与电气同组；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>05</td>
+      <td class="col-school">长春理工大学<br>（10186）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">455 / 482（估）</td>
+      <td class="col-rank">39,000~43,000</td>
+      <td class="col-job">中国一汽/长春光机所/航天精密制造央企</td>
+      <td class="col-soe">40~50%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；无单科硬要求；招生人数需查；光电背景，机械对口精密制造央企</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>06</td>
+      <td class="col-school">长春工业大学<br>（10189）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">460 / 490（估）</td>
+      <td class="col-rank">37,000~41,000</td>
+      <td class="col-job">一汽集团/中车长客/吉林电力国企</td>
+      <td class="col-soe">45~55%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；2024年机械组最低478分（位次32,416）★；电气组参考；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>07</td>
+      <td class="col-school">大连交通大学<br>（10150）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">455 / 482（估）</td>
+      <td class="col-rank">39,000~43,000</td>
+      <td class="col-job">中车集团（轨道交通）/中铁/大连重工</td>
+      <td class="col-soe"><strong>50~60%</strong></td>
+      <td class="col-civil">5~10%</td>
+      <td class="col-note">不色盲；无单科硬要求；招生人数需查；轨道交通央企对口极强</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>08</td>
+      <td class="col-school">沈阳工业大学<br>（10143）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">452 / 480（估）</td>
+      <td class="col-rank">40,000~44,000</td>
+      <td class="col-job">沈阳重工/沈鼓集团/航天配套央企</td>
+      <td class="col-soe">40~50%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；无单科硬要求；招生人数需查；东北老牌工科院校</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>09</td>
+      <td class="col-school">辽宁工程技术大学<br>（10147）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">452 / 478（估）</td>
+      <td class="col-rank">40,000~44,000</td>
+      <td class="col-job">国家能源集团/神华矿山/矿山机电央企</td>
+      <td class="col-soe">45~55%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；矿山类专业另有体检要求需逐项核查；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-chong">冲</span><br>10</td>
+      <td class="col-school">长春工业大学<br>（10189）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">455 / 482（估）</td>
+      <td class="col-rank">39,000~43,000</td>
+      <td class="col-job">中国一汽定向培养/长春装备制造央企</td>
+      <td class="col-soe">45~55%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">与第06条不同专业组；不色盲；招生人数需查；一汽定向项目有额外优势</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══ 稳志愿 第一段 ═══ -->
+<div class="section-title wen">
+  🎯 稳志愿（30个）<span class="badge">参考目标位次 47,000~56,000</span>&emsp;<small>① 省内公办 + 财经备选（11~20）</small>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="col-seq">序号</th>
+      <th class="col-school">院校名称（院校代码）</th>
+      <th class="col-group">专业组代码</th>
+      <th class="col-major">推荐专业（专业代码）</th>
+      <th class="col-score">2025参考<br>最低分/最高分</th>
+      <th class="col-rank">参考位次（估）</th>
+      <th class="col-job">就业方向</th>
+      <th class="col-soe">央/国企机会</th>
+      <th class="col-civil">考公考编</th>
+      <th class="col-note">备注（单科/招生人数/色觉）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>11</td>
+      <td class="col-school">北华大学<br>（10191）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">443 / 468（估）</td>
+      <td class="col-rank">46,000~51,000</td>
+      <td class="col-job">吉林市制造业/省属国企机械岗</td>
+      <td class="col-soe">25~35%</td>
+      <td class="col-civil">15~20%</td>
+      <td class="col-note">不色盲；省属公办本科；本地就业优势明显；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>12</td>
+      <td class="col-school">北华大学<br>（10191）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">441 / 466（估）</td>
+      <td class="col-rank">46,500~52,000</td>
+      <td class="col-job">地方电力国企/吉林电力系统</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>13</td>
+      <td class="col-school">长春大学<br>（10190）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">441 / 466（估）</td>
+      <td class="col-rank">46,500~52,000</td>
+      <td class="col-job">长春汽车零部件/装备制造国企</td>
+      <td class="col-soe">25~35%</td>
+      <td class="col-civil">15~20%</td>
+      <td class="col-note">不色盲；省属公办；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>14</td>
+      <td class="col-school">长春大学<br>（10190）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">计算机科学与技术<br>（080901）</td>
+      <td class="col-score">443 / 468（估）</td>
+      <td class="col-rank">46,000~51,000</td>
+      <td class="col-job">IT/国企信息化部门</td>
+      <td class="col-soe">20~30%</td>
+      <td class="col-civil">15~20%</td>
+      <td class="col-note">无色觉要求；<strong>英语薄弱友好</strong>；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>15</td>
+      <td class="col-school">吉林建筑大学<br>（10192）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">445 / 472（估）</td>
+      <td class="col-rank">44,000~49,000</td>
+      <td class="col-job">中建/中铁/中交施工央企</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；本地学校吉林考生竞争激烈，注意位次风险；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>16</td>
+      <td class="col-school">吉林建筑大学<br>（10192）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">443 / 470（估）</td>
+      <td class="col-rank">45,000~50,000</td>
+      <td class="col-job">建筑智能化/电力工程/地方电网</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>17</td>
+      <td class="col-school">吉林师范大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">计算机科学与技术<br>（080901）</td>
+      <td class="col-score">438 / 464（估）</td>
+      <td class="col-rank">47,500~53,000</td>
+      <td class="col-job">IT/教育信息化/中小学信息技术教师</td>
+      <td class="col-soe">15~20%</td>
+      <td class="col-civil"><strong>30~40%</strong></td>
+      <td class="col-note">无色觉要求；考编路线补充；英语薄弱友好；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>18</td>
+      <td class="col-school">吉林财经大学<br>（10198）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">会计学<br>（120201K）</td>
+      <td class="col-score">441 / 468（估）</td>
+      <td class="col-rank">46,500~52,000</td>
+      <td class="col-job">国企财务/事业单位审计/银行/会计师事务所</td>
+      <td class="col-soe">30~40%</td>
+      <td class="col-civil"><strong>50~60%</strong></td>
+      <td class="col-note">无色觉要求；<strong>考公考编优先</strong>；无单科硬要求；数学强有优势；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>19</td>
+      <td class="col-school">吉林财经大学<br>（10198）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">财政学<br>（020301K）</td>
+      <td class="col-score">439 / 466（估）</td>
+      <td class="col-rank">47,000~52,500</td>
+      <td class="col-job">财政局/税务局/国家机关/国有银行</td>
+      <td class="col-soe">20~30%</td>
+      <td class="col-civil"><strong>60~70%</strong></td>
+      <td class="col-note">无色觉要求；考公优势专业；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>20</td>
+      <td class="col-school">吉林财经大学<br>（10198）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">税收学<br>（020302）</td>
+      <td class="col-score">437 / 464（估）</td>
+      <td class="col-rank">47,500~53,000</td>
+      <td class="col-job">税务局（考编铁饭碗）/会计师事务所</td>
+      <td class="col-soe">15~25%</td>
+      <td class="col-civil"><strong>65~75%</strong></td>
+      <td class="col-note">无色觉要求；<strong>税务系统对口最直接路径</strong>；数学强有优势；招生人数需查</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 稳志愿第二段 -->
+<div class="section-title wen" style="margin-top:2mm;">
+  🎯 稳志愿续 <small>② 省外工科公办（21~30）</small>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="col-seq">序号</th>
+      <th class="col-school">院校名称（院校代码）</th>
+      <th class="col-group">专业组代码</th>
+      <th class="col-major">推荐专业（专业代码）</th>
+      <th class="col-score">2025参考<br>最低分/最高分</th>
+      <th class="col-rank">参考位次（估）</th>
+      <th class="col-job">就业方向</th>
+      <th class="col-soe">央/国企机会</th>
+      <th class="col-civil">考公考编</th>
+      <th class="col-note">备注（单科/招生人数/色觉）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>21</td>
+      <td class="col-school">辽宁科技大学<br>（10145估）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">436 / 462（估）</td>
+      <td class="col-rank">48,000~53,500</td>
+      <td class="col-job">鞍钢/本钢/中铁/钢铁冶金央企</td>
+      <td class="col-soe">40~50%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；鞍山本地央企对口好；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>22</td>
+      <td class="col-school">沈阳化工大学<br>（10148）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">过程装备与控制工程<br>（081404）</td>
+      <td class="col-score">434 / 460（估）</td>
+      <td class="col-rank">48,500~54,000</td>
+      <td class="col-job">中石油/中石化/中海油石化央企</td>
+      <td class="col-soe"><strong>45~55%</strong></td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；化工安全要求严；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>23</td>
+      <td class="col-school">辽宁石油化工大学<br>（10149估）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">432 / 458（估）</td>
+      <td class="col-rank">49,000~54,500</td>
+      <td class="col-job">中石油炼化分公司/石化央企基层</td>
+      <td class="col-soe"><strong>45~55%</strong></td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；石化方向央企进入率高；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>24</td>
+      <td class="col-school">沈阳工程学院<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">432 / 458（估）</td>
+      <td class="col-rank">49,000~54,500</td>
+      <td class="col-job">国家电网/辽宁能源/地方电力国企</td>
+      <td class="col-soe"><strong>50~60%</strong></td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；电气特色院校；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>25</td>
+      <td class="col-school">太原科技大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">432 / 458（估）</td>
+      <td class="col-rank">49,000~54,500</td>
+      <td class="col-job">太重/山西煤机/冶金重工央企</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；山西重工央企输送稳定；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>26</td>
+      <td class="col-school">内蒙古工业大学<br>（10128）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">430 / 456（估）</td>
+      <td class="col-rank">49,500~55,000</td>
+      <td class="col-job">包钢/内蒙古能源集团/稀土央企</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；内蒙古资源型央企多；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>27</td>
+      <td class="col-school">山东理工大学<br>（10431）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">432 / 458（估）</td>
+      <td class="col-rank">49,000~54,500</td>
+      <td class="col-job">山东重工/潍柴动力/鲁能集团</td>
+      <td class="col-soe">30~40%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>28</td>
+      <td class="col-school">河北科技大学<br>（10082）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">430 / 456（估）</td>
+      <td class="col-rank">49,500~55,000</td>
+      <td class="col-job">河钢集团/中国建材/华北制造央企</td>
+      <td class="col-soe">30~40%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>29</td>
+      <td class="col-school">安徽工业大学<br>（10360）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">428 / 454（估）</td>
+      <td class="col-rank">50,000~55,500</td>
+      <td class="col-job">马钢/中国五矿/华东重工</td>
+      <td class="col-soe">30~40%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>30</td>
+      <td class="col-school">沈阳理工大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">432 / 458（估）</td>
+      <td class="col-rank">49,000~54,500</td>
+      <td class="col-job">兵器工业集团/军工配套央企</td>
+      <td class="col-soe"><strong>45~55%</strong></td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；军工院校背景，国防/保密类央企优先；招生人数需查</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- 稳志愿第三段 -->
+<div class="section-title wen" style="margin-top:2mm;">
+  🎯 稳志愿续 <small>③ 省外补充 + 中外合作（31~40）</small>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="col-seq">序号</th>
+      <th class="col-school">院校名称（院校代码）</th>
+      <th class="col-group">专业组代码</th>
+      <th class="col-major">推荐专业（专业代码）</th>
+      <th class="col-score">2025参考<br>最低分/最高分</th>
+      <th class="col-rank">参考位次（估）</th>
+      <th class="col-job">就业方向</th>
+      <th class="col-soe">央/国企机会</th>
+      <th class="col-civil">考公考编</th>
+      <th class="col-note">备注（单科/招生人数/色觉）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>31</td>
+      <td class="col-school">黑龙江科技大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">430 / 456（估）</td>
+      <td class="col-rank">49,500~55,000</td>
+      <td class="col-job">国家能源集团/龙煤/矿山央企</td>
+      <td class="col-soe">40~50%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；东北煤炭央企对口；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>32</td>
+      <td class="col-school">内蒙古科技大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">428 / 454（估）</td>
+      <td class="col-rank">50,000~55,500</td>
+      <td class="col-job">包钢/内蒙古电力/冶金电气央企</td>
+      <td class="col-soe">40~50%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；原包头钢铁学院，冶金央企对口强；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>33</td>
+      <td class="col-school">辽宁工业大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">428 / 454（估）</td>
+      <td class="col-rank">50,000~55,500</td>
+      <td class="col-job">锦州石化/辽宁制造业国企</td>
+      <td class="col-soe">25~35%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>34</td>
+      <td class="col-school">湖南工业大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">428 / 454（估）</td>
+      <td class="col-rank">50,000~55,500</td>
+      <td class="col-job">中车株洲/中国有色/湖南制造央企</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">8~12%</td>
+      <td class="col-note">不色盲；株洲是中车基地，轨道央企对口好；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>35</td>
+      <td class="col-school">河南工业大学<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">428 / 454（估）</td>
+      <td class="col-rank">50,000~55,500</td>
+      <td class="col-job">中国中粮/国机集团/工业机械</td>
+      <td class="col-soe">25~35%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>36</td>
+      <td class="col-school">黑龙江工程学院<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">425 / 450（估）</td>
+      <td class="col-rank">51,000~56,500</td>
+      <td class="col-job">哈飞/航天/东北装备制造央企</td>
+      <td class="col-soe">30~40%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>37</td>
+      <td class="col-school">吉林农业大学<br>（10194）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">过程装备与控制工程<br>（081404）</td>
+      <td class="col-score">432 / 458（估）</td>
+      <td class="col-rank">49,000~54,500</td>
+      <td class="col-job">农业机械/食品加工央企/中粮集团</td>
+      <td class="col-soe">25~35%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲色弱；食品农业央企方向；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>38</td>
+      <td class="col-school">长春工业大学<br>（10189）中外合作</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">信息工程/电气<br>（需查具体代码）</td>
+      <td class="col-score">432 / 458（估）</td>
+      <td class="col-rank">49,000~54,500</td>
+      <td class="col-job">中外合作背景/国企信息化</td>
+      <td class="col-soe">25~35%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">学费约1.5~2.5万/年；<strong>需确认授课语言比例，英语薄弱优先选中方主导课程</strong>；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>39</td>
+      <td class="col-school">吉林建筑大学<br>（10192）中外合作</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">建筑/机械相关<br>（需查具体代码）</td>
+      <td class="col-score">430 / 455（估）</td>
+      <td class="col-rank">49,500~55,000</td>
+      <td class="col-job">建筑类央企/对外工程承包</td>
+      <td class="col-soe">30~40%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">学费约1~2万/年；需核查合作方院校及语言要求；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-wen">稳</span><br>40</td>
+      <td class="col-school">吉林师范大学<br>（需查）中外合作</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">计算机相关<br>（需查具体代码）</td>
+      <td class="col-score">428 / 453（估）</td>
+      <td class="col-rank">50,000~55,500</td>
+      <td class="col-job">IT/教育信息化/考编</td>
+      <td class="col-soe">15~25%</td>
+      <td class="col-civil">25~35%</td>
+      <td class="col-note">学费约1.5~2万/年；英语薄弱注意语言要求；招生人数需查</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══ 保志愿 ═══ -->
+<div class="section-title bao" style="margin-top:4mm;">
+  🛡️ 保志愿（10个）<span class="badge">参考目标位次 56,000~76,000</span>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="col-seq">序号</th>
+      <th class="col-school">院校名称（院校代码）</th>
+      <th class="col-group">专业组代码</th>
+      <th class="col-major">推荐专业（专业代码）</th>
+      <th class="col-score">2025参考<br>最低分/最高分</th>
+      <th class="col-rank">参考位次（估）</th>
+      <th class="col-job">就业方向</th>
+      <th class="col-soe">央/国企机会</th>
+      <th class="col-civil">考公考编</th>
+      <th class="col-note">备注（单科/招生人数/色觉）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>41</td>
+      <td class="col-school">吉林化工学院<br>（10193）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">420 / 445（估）</td>
+      <td class="col-rank">54,000~62,000</td>
+      <td class="col-job">中石化/中石油/化工央企基层岗</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">不色盲；公办省属；吉林化工企业就业对口好；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>42</td>
+      <td class="col-school">吉林化工学院<br>（10193）</td>
+      <td class="col-group">需查<br>（另组）</td>
+      <td class="col-major">电气工程及其自动化<br>（080601）</td>
+      <td class="col-score">418 / 443（估）</td>
+      <td class="col-rank">54,500~63,000</td>
+      <td class="col-job">化工园区电力/吉林地方能源国企</td>
+      <td class="col-soe">35~45%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note"><span class="warn">不色盲色弱</span>；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>43</td>
+      <td class="col-school">吉林工程技术师范学院<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">415 / 440（估）</td>
+      <td class="col-rank">55,500~64,000</td>
+      <td class="col-job">职业学校教师（中职编制）/制造业</td>
+      <td class="col-soe">20~30%</td>
+      <td class="col-civil"><strong>40~50%</strong></td>
+      <td class="col-note">不色盲；<strong>吉林省内考中职编制优势院校</strong>，胜率高；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>44</td>
+      <td class="col-school">通化师范学院<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">计算机科学与技术<br>（080901）</td>
+      <td class="col-score">412 / 438（估）</td>
+      <td class="col-rank">56,500~65,000</td>
+      <td class="col-job">IT/教育信息化/中小学信息技术教师</td>
+      <td class="col-soe">10~15%</td>
+      <td class="col-civil"><strong>35~45%</strong></td>
+      <td class="col-note">无色觉要求；考编补充；英语薄弱友好；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>45</td>
+      <td class="col-school">吉林农业科技学院<br>（需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">计算机科学与技术<br>（080901）</td>
+      <td class="col-score">408 / 432（估）</td>
+      <td class="col-rank">58,000~67,000</td>
+      <td class="col-job">IT/农业信息化/小型企业</td>
+      <td class="col-soe">10~20%</td>
+      <td class="col-civil">20~30%</td>
+      <td class="col-note">无色觉要求；公办本科；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>46</td>
+      <td class="col-school">长春大学旅游学院<br>（民办，需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">计算机科学与技术<br>（080901）</td>
+      <td class="col-score">400 / 425（估）</td>
+      <td class="col-rank">60,000~70,000</td>
+      <td class="col-job">IT/电商/互联网</td>
+      <td class="col-soe">10~15%</td>
+      <td class="col-civil">15~20%</td>
+      <td class="col-note">民办；无色觉要求；学费较高，需核查具体标准；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>47</td>
+      <td class="col-school">吉林建筑科技学院<br>（民办，需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">机械工程<br>（080202）</td>
+      <td class="col-score">395 / 420（估）</td>
+      <td class="col-rank">62,000~73,000</td>
+      <td class="col-job">建筑/制造业/小型民营企业</td>
+      <td class="col-soe">10~20%</td>
+      <td class="col-civil">10~15%</td>
+      <td class="col-note">民办；不色盲；学费较高；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>48</td>
+      <td class="col-school">长春光华学院<br>（民办，需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">计算机科学与技术<br>（080901）</td>
+      <td class="col-score">392 / 418（估）</td>
+      <td class="col-rank">63,000~75,000</td>
+      <td class="col-job">IT/数字媒体/互联网</td>
+      <td class="col-soe">10~15%</td>
+      <td class="col-civil">15~20%</td>
+      <td class="col-note">民办；无色觉要求；英语薄弱友好；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>49</td>
+      <td class="col-school">吉林财经大学<br>（10198）中外合作</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">会计学/财务管理<br>（120201K / 120203K）</td>
+      <td class="col-score">400 / 430（估）</td>
+      <td class="col-rank">60,000~70,000</td>
+      <td class="col-job">国际财务/国企财务/CPA+考公双轨</td>
+      <td class="col-soe">20~30%</td>
+      <td class="col-civil"><strong>45~55%</strong></td>
+      <td class="col-note">中外合作；学费偏高；优先选中方主导授课项目；无色觉要求；招生人数需查</td>
+    </tr>
+    <tr>
+      <td class="col-seq"><span class="tag-bao">保</span><br>50</td>
+      <td class="col-school">长春人文学院<br>（民办，需查）</td>
+      <td class="col-group">需查</td>
+      <td class="col-major">会计学<br>（120201K）</td>
+      <td class="col-score">388 / 415（估）</td>
+      <td class="col-rank">64,000~76,000</td>
+      <td class="col-job">会计/财务/考公务员兜底方向</td>
+      <td class="col-soe">10~15%</td>
+      <td class="col-civil"><strong>35~45%</strong></td>
+      <td class="col-note">民办；无色觉要求；<strong>数学强可备考CPA以弥补院校劣势</strong>；绝对兜底；招生人数需查</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══ 补充说明 ═══ -->
+<div class="notes">
+  <div class="note-card">
+    <h4>🔴 填报前核查清单</h4>
+    <table>
+      <thead><tr><th>核查项</th><th>渠道</th></tr></thead>
+      <tbody>
+        <tr><td>专业组代码（全部需查）</td><td>吉林省教育考试院 gk.jleea.com.cn → 招生计划查询</td></tr>
+        <tr><td>院校代码标（估）者</td><td>教育部阳光高考 gaokao.chsi.com.cn → 院校库</td></tr>
+        <tr><td>各专业组招生人数</td><td>各校2026年吉林省招生计划（7月前发布）</td></tr>
+        <tr><td>2025年实际录取分/位次</td><td>吉林省教育考试院2025年录取结果（7月公布后替换估算值）</td></tr>
+        <tr><td>中外合作授课语言比例</td><td>各校招生简章"中外合作办学项目"章节</td></tr>
+        <tr><td>色觉/体检要求</td><td>各校招生简章"体检标准"章节（逐校核查）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-card">
+    <h4>👁️ 色觉要求汇总</h4>
+    <table>
+      <thead><tr><th>要求等级</th><th>涉及专业</th></tr></thead>
+      <tbody>
+        <tr><td style="color:#c0392b;font-weight:bold;">不色盲色弱（严格）</td><td>电气工程及其自动化、自动化、过程装备与控制工程、化学工程与工艺</td></tr>
+        <tr><td style="color:#e67e22;">不色盲（色弱可商量）</td><td>机械工程、机械设计制造、测控技术与仪器</td></tr>
+        <tr><td style="color:#27ae60;">无特殊要求</td><td>计算机科学与技术、软件工程、会计学、财政学、税收学</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-card">
+    <h4>📊 专业代码速查（国标6位）</h4>
+    <table>
+      <thead><tr><th>专业</th><th>代码</th><th>专业</th><th>代码</th></tr></thead>
+      <tbody>
+        <tr><td>机械工程</td><td>080202</td><td>计算机科学与技术</td><td>080901</td></tr>
+        <tr><td>机械设计制造及其自动化</td><td>080201</td><td>软件工程</td><td>080902</td></tr>
+        <tr><td>电气工程及其自动化</td><td>080601</td><td>会计学</td><td>120201K</td></tr>
+        <tr><td>自动化</td><td>080801</td><td>财务管理</td><td>120203K</td></tr>
+        <tr><td>过程装备与控制工程</td><td>081404</td><td>财政学</td><td>020301K</td></tr>
+        <tr><td>电子信息工程</td><td>080701</td><td>税收学</td><td>020302</td></tr>
+        <tr><td>通信工程</td><td>080703</td><td>车辆工程</td><td>080204</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-card">
+    <h4>🏗️ 梯度策略说明 &amp; 强项利用</h4>
+    <table>
+      <thead><tr><th>梯度</th><th>数量</th><th>核心逻辑</th></tr></thead>
+      <tbody>
+        <tr><td style="color:#943126;font-weight:bold;">冲（01~10）</td><td>10个</td><td>录不上不亏，录上大赚；主攻电气/自动化央企对口院校</td></tr>
+        <tr><td style="color:#1e8449;font-weight:bold;">稳（11~40）</td><td>30个</td><td>主战场，覆盖最宽位次带；公办优先，专业方向稳定</td></tr>
+        <tr><td style="color:#1a5276;font-weight:bold;">保（41~50）</td><td>10个</td><td>公办院校优先；民办兜底；确保有书读</td></tr>
+      </tbody>
+    </table>
+    <br>
+    <table>
+      <thead><tr><th colspan="2">学科强项的专业利用策略</th></tr></thead>
+      <tbody>
+        <tr><td>数学强</td><td>会计学/财政学/税收学：备考CPA、税务局考试均以数学见长</td></tr>
+        <tr><td>理科强</td><td>机械/电气/自动化：工程力学、电路分析等核心课高度依赖理科</td></tr>
+        <tr><td>英语薄弱</td><td>回避：英语门槛专业组、纯英文中外合作；推荐：本地高校、省内公办、计算机类</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  吴景宇 · 2026年高考志愿填报方案 &emsp;|&emsp; 吉林省物理类 · 全省位次 47,000 · 估算分数 443~448分
+  &emsp;|&emsp; 标★为已确认数据，其余为参考估算，以吉林省教育考试院官方数据为准
+  &emsp;|&emsp; 吉林省本科批平行志愿上限40个，本表50条为遴选池
+</div>
+
+</body>
+</html>
